@@ -1,2 +1,0 @@
-# currency-exchange
-Payconiq Assignment
