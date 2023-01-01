@@ -18,6 +18,7 @@
     "jsx": "react-jsx",
     "paths": {
       "@components/*": ["./src/components/*"],
+      "@kit/*": ["./src/components/kit/*"],
       "@configs/*": ["./src/configs/*"],
       "@constants/*": ["./src/constants/*"],
       "@hooks/*": ["./src/hooks/*"],
