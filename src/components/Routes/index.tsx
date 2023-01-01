@@ -1,31 +1,32 @@
 import { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes as ReactRouter } from "react-router-dom";
+import Loading from "@kit/Loading";
 import Layout from "@components/Layout";
+import ROUTES from "@constants/routes";
+import type { FC } from "react";
 
 const Home = lazy(() => import("./Home"));
 const History = lazy(() => import("./History"));
 
-import type { FC } from "react";
-import Loading from "@kit/Loading";
-
 const routes = [
-  { path: "/", index: true, element: <Home /> },
-  { path: "/history", index: true, element: <History /> },
+  { path: ROUTES.HOME, index: true, element: <Home /> },
+  { path: ROUTES.HISTORY, index: true, element: <History /> },
 ];
 const Routes: FC = () => {
   return (
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <ReactRouter>
           {routes.map(({ element, ...route }) => (
             <Route
+              key={route.path}
               {...route}
               element={<Suspense fallback={<Loading />}>{element}</Suspense>}
             />
           ))}
         </ReactRouter>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   );
 };
 export default Routes;

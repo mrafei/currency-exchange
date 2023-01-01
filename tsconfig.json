@@ -21,8 +21,10 @@
       "@kit/*": ["./src/components/kit/*"],
       "@configs/*": ["./src/configs/*"],
       "@constants/*": ["./src/constants/*"],
+      "@contexts/*": ["./src/contexts/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@services/*": ["./src/services/*"],
+      "@styles/*": ["./src/styles/*"],
       "@_types/*": ["./src/types/*"],
       "@utils/*": ["./src/utils/*"]
     }
