@@ -35,7 +35,7 @@ const ConverterResult: FC<ConverterResultProps> = ({
                 =
               </Typography>
               <Typography variant="h1" component="span" color="secondary.main">
-                {Math.round(amount * rate)} {destCurrency}
+                {NumberUtils.format(Math.round(amount * rate))} {destCurrency}
               </Typography>
             </>
           </Box>
