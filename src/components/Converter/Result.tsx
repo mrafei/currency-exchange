@@ -24,7 +24,7 @@ const ConverterResult: FC<ConverterResultProps> = ({
       flexDirection="column"
       alignItems="center"
     >
-      {rate && amount ? (
+      {rate && amount && sourceCurrency && destCurrency ? (
         <>
           <Box display="flex" justifyContent="center" gap={1}>
             <>
