@@ -5,12 +5,12 @@ import Layout from "@components/Layout";
 import ROUTES from "@constants/routes";
 import type { FC } from "react";
 
-const Home = lazy(() => import("./Home"));
-const History = lazy(() => import("./History"));
+const HomeRoute = lazy(() => import("./Home"));
+const HistoryRoute = lazy(() => import("./History"));
 
 const routes = [
-  { path: ROUTES.HOME, index: true, element: <Home /> },
-  { path: ROUTES.HISTORY, index: true, element: <History /> },
+  { path: ROUTES.HOME, index: true, element: <HomeRoute /> },
+  { path: ROUTES.HISTORY, index: true, element: <HistoryRoute /> },
 ];
 const Routes: FC = () => {
   return (

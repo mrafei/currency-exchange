@@ -16,7 +16,7 @@ const LayoutAppBar: FC = () => {
   return (
     <AppBar
       position="static"
-      sx={{ backgroundColor: "background.default", color: "text.primary" }}
+      sx={{ backgroundColor: "background.paper", color: "text.primary" }}
     >
       <Container>
         <Toolbar variant="dense" sx={{ gap: 2 }}>

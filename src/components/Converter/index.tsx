@@ -51,7 +51,7 @@ const Converter: FC = () => {
         <Button
           onClick={revertCurrencies}
           sx={{
-            backgroundColor: "background.default",
+            backgroundColor: "background.paper",
             minWidth: 50,
             boxShadow: 1,
           }}

@@ -1,16 +1,14 @@
 import Box from "@mui/material/Box";
-import type { FC } from "react";
-import useConvertHistory from "@hooks/useConvertHistory";
 import Typography from "@mui/material/Typography";
+import History from "@components/History";
+import type { FC } from "react";
 
-const History: FC = () => {
-  const { history } = useConvertHistory();
+const HistoryRoute: FC = () => {
   return (
-    <Box>
-      {history.map((item) => (
-        <Typography>{item.date}</Typography>
-      ))}
+    <Box display="flex" flexDirection="column" gap={7}>
+      <Typography variant="h1">Conversion History</Typography>
+      <History />
     </Box>
   );
 };
-export default History;
+export default HistoryRoute;

@@ -4,7 +4,7 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import type { FC } from "react";
 
-const Home: FC = () => {
+const HomeRoute: FC = () => {
   return (
     <Box display="flex" flexDirection="column" gap={7}>
       <Typography variant="h1">I want to convert</Typography>
@@ -13,4 +13,4 @@ const Home: FC = () => {
     </Box>
   );
 };
-export default Home;
+export default HomeRoute;

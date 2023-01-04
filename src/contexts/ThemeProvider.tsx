@@ -12,8 +12,8 @@ const ThemeProvider: HOCFunctionalComponent = ({ children }) => {
         main: "#94c720",
       },
       background: {
-        default: "#ffffff",
-        paper: "#f2f2f2",
+        default: "#f2f2f2",
+        paper: "#ffffff",
       },
       warning: { main: "#c70d38" },
       text: {
