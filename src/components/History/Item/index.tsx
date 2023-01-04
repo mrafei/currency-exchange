@@ -5,7 +5,7 @@ import HistoryItemActions from "./Actions";
 import type { HistoryItemType } from "@_types/history";
 
 export type ItemType = {
-  remove: (date: HistoryItemType["date"]) => void;
+  remove: (date: HistoryItemType["id"]) => void;
 } & HistoryItemType;
 
 const HistoryItem: FC<ItemType> = (item) => {

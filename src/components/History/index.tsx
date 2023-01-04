@@ -15,7 +15,7 @@ const History: FC = () => {
         <HistoryHead />
         <TableBody>
           {history.map((item) => (
-            <HistoryItem key={item.date} remove={removeHistoryLog} {...item} />
+            <HistoryItem key={item.id} remove={removeHistoryLog} {...item} />
           ))}
         </TableBody>
       </Table>

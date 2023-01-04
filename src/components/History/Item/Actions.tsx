@@ -19,7 +19,7 @@ const HistoryItemActions: FC<ItemType> = ({ remove, ...item }) => {
         </Button>
       </Link>
       <Button
-        onClick={() => remove(item.date)}
+        onClick={() => remove(item.id)}
         size="small"
         color="error"
         startIcon={<RemoveRedEyeIcon />}

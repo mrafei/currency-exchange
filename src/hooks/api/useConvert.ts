@@ -1,17 +1,35 @@
+import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
-import type Currency from "@_types/currency";
 import { convertApi } from "@constants/api";
+import useConvertHistory from "@hooks/useConvertHistory";
+import type { HistoryItemType } from "@_types/history";
 
-export default function useConvert(
-  source: Currency | null,
-  dest: Currency | null
-) {
-  return useQuery(
-    ["convert"],
-    () =>
-      fetch(`${convertApi}?from=${source}&to=${dest}`).then((res) =>
-        res.json()
-      ),
-    { enabled: Boolean(source && dest) }
+type DataType = Omit<HistoryItemType, "id" | "date">;
+
+export default function useConvert() {
+  const [data, _setData] = useState<DataType>();
+  const { source, dest, amount } = data || {};
+  const { addHistoryLog } = useConvertHistory();
+
+  const logHistory = useCallback(() => {
+    if (amount && source && dest) addHistoryLog({ amount, source, dest });
+  }, [amount, source, dest]);
+
+  const res = useQuery(
+    "convert",
+    async () => {
+      const res = await fetch(`${convertApi}?from=${source}&to=${dest}`).then(
+        (res) => res.json()
+      );
+      logHistory();
+      return res;
+    },
+    { enabled: Boolean(source && dest), cacheTime: 1000 }
   );
+
+  const submit = useCallback((data: DataType) => {
+    _setData(data);
+  }, []);
+
+  return { ...res, submit };
 }

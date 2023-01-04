@@ -6,28 +6,22 @@ import ConverterResult from "./Result";
 import Button from "@mui/material/Button";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import useConvert from "@hooks/api/useConvert";
-import useConvertHistory from "@hooks/useConvertHistory";
 import type Currency from "@_types/currency";
 import type { FC } from "react";
 
 const Converter: FC = () => {
   const [amount, setAmount] = useState<number>();
-  const [tempFrom, setTempFrom] = useState<Currency | null>(null);
-  const [tempTo, setTempTo] = useState<Currency | null>(null);
   const [from, setFrom] = useState<Currency | null>(null);
   const [to, setTo] = useState<Currency | null>(null);
-  const { addHistoryLog } = useConvertHistory();
-  const { data: { result: rate } = {} } = useConvert(from, to);
+  const { data, submit } = useConvert();
 
   const revertCurrencies = () => {
-    setTempFrom(tempTo);
-    setTempTo(tempFrom);
+    setFrom(to);
+    setTo(from);
   };
-  const submit = () => {
-    if (amount && tempFrom && tempTo) {
-      setTo(tempTo);
-      setFrom(tempFrom);
-      addHistoryLog({ amount, source: tempFrom, dest: tempTo });
+  const _submit = () => {
+    if (amount && from && to) {
+      submit({ amount, source: from, dest: to });
     }
   };
   return (
@@ -41,13 +35,10 @@ const Converter: FC = () => {
           label="Amount"
           variant="standard"
           type="number"
+          autoComplete="off"
           sx={{ minWidth: 200 }}
         />
-        <ConverterSelector
-          value={tempFrom}
-          onChange={setTempFrom}
-          label="From"
-        />
+        <ConverterSelector value={from} onChange={setFrom} label="From" />
         <Button
           onClick={revertCurrencies}
           sx={{
@@ -58,10 +49,10 @@ const Converter: FC = () => {
         >
           <CompareArrowsIcon />
         </Button>
-        <ConverterSelector value={tempTo} onChange={setTempTo} label="To" />
+        <ConverterSelector value={to} onChange={setTo} label="To" />
         <Button
-          disabled={!Boolean(tempTo && tempFrom && amount)}
-          onClick={submit}
+          disabled={!Boolean(to && from && amount)}
+          onClick={_submit}
           variant="contained"
           sx={{ flexShrink: 0 }}
         >
@@ -72,7 +63,7 @@ const Converter: FC = () => {
         amount={amount}
         sourceCurrency={from}
         destCurrency={to}
-        rate={rate}
+        rate={data?.["result"]}
       />
     </>
   );

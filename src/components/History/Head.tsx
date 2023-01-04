@@ -10,7 +10,7 @@ const HistoryHead: FC = () => {
     <TableHead>
       <TableRow>
         {headCells.map((text) => (
-          <TableCell>
+          <TableCell key={text}>
             <Typography color="text.secondary">{text}</Typography>
           </TableCell>
         ))}
