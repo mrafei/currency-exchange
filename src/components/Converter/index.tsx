@@ -8,6 +8,8 @@ import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
 import useConvert from "@hooks/api/useConvert";
 import type Currency from "@_types/currency";
 import type { FC } from "react";
+import Divider from "@mui/material/Divider";
+import TimeSeries from "@components/TimeSeries";
 
 const Converter: FC = () => {
   const [amount, setAmount] = useState<number>();
@@ -65,6 +67,8 @@ const Converter: FC = () => {
         destCurrency={to}
         rate={data}
       />
+      <Divider />
+      {from && to ? <TimeSeries source={from} dest={to} /> : null}
     </>
   );
 };

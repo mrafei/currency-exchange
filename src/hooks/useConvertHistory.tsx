@@ -14,7 +14,7 @@ export default function useConvertHistory() {
     localStorage.setItem(HISTORY_KEY, JSON.stringify(newHistory));
   };
   const addHistoryLog = (item: Omit<HistoryItemType, "date" | "id">) => {
-    const { date, exact } = DateUtils.now();
+    const { date, exact } = DateUtils.date();
     _updateHistory([...history, { ...item, date, id: exact }]);
   };
 
