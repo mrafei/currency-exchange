@@ -63,7 +63,7 @@ const Converter: FC = () => {
         amount={amount}
         sourceCurrency={from}
         destCurrency={to}
-        rate={data?.["result"]}
+        rate={data}
       />
     </>
   );

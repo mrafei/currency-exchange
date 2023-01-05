@@ -1,4 +1,5 @@
 const baseUrl = "https://api.exchangerate.host";
-const convertApi = baseUrl + "/convert";
+const convertApi = `${baseUrl}/convert`;
+const historyApi = `${baseUrl}/timeseries`;
 
-export { baseUrl, convertApi };
+export { baseUrl, convertApi, historyApi };
