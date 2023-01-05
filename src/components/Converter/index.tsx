@@ -67,8 +67,10 @@ const Converter: FC = () => {
         destCurrency={to}
         rate={data}
       />
-      <Divider />
-      {from && to ? <TimeSeries source={from} dest={to} /> : null}
+      <Box>
+        <Divider sx={{ mb: 3 }} />
+        {from && to ? <TimeSeries source={from} dest={to} /> : null}
+      </Box>
     </>
   );
 };

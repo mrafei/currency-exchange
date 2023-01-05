@@ -18,7 +18,16 @@ export default function useTimeSeries(
     ...DATE_FORMAT,
     addition: -duration,
   }).date.replace(rx, "$3-$1-$2");
-  return useQuery(["timeSeries", source, dest, duration], () =>
+  const query = useQuery(["timeSeries", source, dest, duration], () =>
     CurrencyServices.history({ source, dest, end, start })
   );
+  return {
+    ...query,
+    data: Object.fromEntries(
+      Object.entries(query.data?.rates || {}).map(([date, item]) => [
+        date.replace(rx, "$3/$2/$1"),
+        item?.[dest],
+      ])
+    ),
+  };
 }

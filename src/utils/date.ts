@@ -11,7 +11,7 @@ const DATE_TIME_FORMAT: Intl.DateTimeFormatOptions = {
 };
 
 const _format = (date: string, options: DateOptionsType) => {
-  const { separator = { date: "-", hour: " @" } } = options;
+  const { separator = { date: "/", hour: " @" } } = options;
 
   let res = date;
   if (separator.date) res = res.replaceAll("/", separator.date);
