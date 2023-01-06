@@ -13,7 +13,9 @@ const HistoryItemActions: FC<ItemType> = ({ remove, ...item }) => {
       className="history-actions"
       sx={{ visibility: "hidden" }}
     >
-      <Link to="/">
+      <Link
+        to={`/?amount=${item.amount}&source=${item.source}&dest=${item.dest}`}
+      >
         <Button size="small" startIcon={<RemoveRedEyeIcon />}>
           View
         </Button>
