@@ -20,7 +20,9 @@ const TimeSeriesSelect: FC<TimeSeriesSelectType> = ({
       sx={{ width: 200 }}
     >
       {options.map((option) => (
-        <MenuItem value={option}>{option} days</MenuItem>
+        <MenuItem key={option} value={option}>
+          {option} days
+        </MenuItem>
       ))}
     </Select>
   );

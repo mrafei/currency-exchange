@@ -17,7 +17,12 @@ const TimeSeriesRadio: FC<TimeSeriesRadioType> = ({ display, setDisplay }) => {
       onChange={(e) => setDisplay(e.target.value)}
     >
       {options.map((option) => (
-        <FormControlLabel value={option} control={<Radio />} label={option} />
+        <FormControlLabel
+          key={option}
+          value={option}
+          control={<Radio />}
+          label={option}
+        />
       ))}
     </RadioGroup>
   );

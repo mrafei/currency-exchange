@@ -25,7 +25,7 @@ const TimeSeriesRateTable: FC<TimeSeriesRateTableProps> = ({ rates }) => (
       </TableHead>
       <TableBody>
         {Object.entries(rates).map(([date, rate]) => (
-          <TableRow>
+          <TableRow key={date}>
             <TableCell>{date}</TableCell>
             <TableCell>{rate}</TableCell>
           </TableRow>
