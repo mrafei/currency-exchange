@@ -3,12 +3,12 @@ import TextField from "@mui/material/TextField";
 import Currency from "@_types/currency";
 import type { FC } from "react";
 
-type ConverterSelectorProps = {
+type ConverterSelectProps = {
   label: string;
   value: Currency | null;
   onChange: (value: Currency | null) => void;
 };
-const ConverterSelector: FC<ConverterSelectorProps> = ({
+const ConverterSelect: FC<ConverterSelectProps> = ({
   label,
   value,
   onChange,
@@ -27,4 +27,4 @@ const ConverterSelector: FC<ConverterSelectorProps> = ({
     />
   );
 };
-export default ConverterSelector;
+export default ConverterSelect;

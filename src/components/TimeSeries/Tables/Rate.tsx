@@ -12,12 +12,12 @@ type TimeSeriesRateTableProps = {
   rates: Record<string, number>;
 };
 const TimeSeriesRateTable: FC<TimeSeriesRateTableProps> = ({ rates }) => (
-  <TableContainer component={Paper}>
-    <Table>
+  <TableContainer component={Paper} sx={{ maxHeight: 550 }}>
+    <Table stickyHeader>
       <TableHead>
         <TableRow>
           {["Date", "Exchange rate"].map((text) => (
-            <TableCell key={text}>
+            <TableCell key={text} sx={{ backgroundColor: "background.paper" }}>
               <Typography color="text.secondary">{text}</Typography>
             </TableCell>
           ))}

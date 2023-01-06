@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import ConverterSelector from "./Selector";
+import ConverterSelect from "./Select";
 import ConverterResult from "./Result";
 import Button from "@mui/material/Button";
 import CompareArrowsIcon from "@mui/icons-material/CompareArrows";
@@ -40,7 +40,7 @@ const Converter: FC = () => {
           autoComplete="off"
           sx={{ minWidth: 200 }}
         />
-        <ConverterSelector value={from} onChange={setFrom} label="From" />
+        <ConverterSelect value={from} onChange={setFrom} label="From" />
         <Button
           onClick={revertCurrencies}
           sx={{
@@ -51,7 +51,7 @@ const Converter: FC = () => {
         >
           <CompareArrowsIcon />
         </Button>
-        <ConverterSelector value={to} onChange={setTo} label="To" />
+        <ConverterSelect value={to} onChange={setTo} label="To" />
         <Button
           disabled={!Boolean(to && from && amount)}
           onClick={_submit}
